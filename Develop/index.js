@@ -82,7 +82,8 @@ const promptUser = () => {
         type: 'checkbox',
         name: 'license',
         message: 'Please choose from below',
-        choices: ['MIT', 'ISD', 'GNU', ]
+        choices: ['MIT', 'ISD', 'GNU', ],
+        when: ({confirmLicense}) => confirmLicense
       },
       {
         type: 'input',
