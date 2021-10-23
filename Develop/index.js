@@ -82,22 +82,46 @@ const promptUser = () => {
         type: 'checkbox',
         name: 'license',
         message: 'Please choose from below',
-        choices: 
-      }
+        choices: ['MIT', 'ISD', 'GNU', ]
+      },
       {
         type: 'input',
         name: 'github',
         message: 'What is your github username?'
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?'
       }
     ])
   };
 
 // TODO: Create a function to write README file
+const writeFile = data => {
+  fs.writeFile('README.md', data, err => {
+      if (err) {
+          console.log(err);
+          return; 
+      } else {
+          console.log("README was created")
+      }
+  })
+}; 
 
 
 // TODO: Create a function to initialize app
 function init() {
   promptUser()
+.then(answers => {
+    return generateMarkdown(answers);
+})
+.then(data => {
+    return writeFile(data);
+})
+.catch(err => {
+    console.log(err)
+})
 }
 
 // Function call to initialize app

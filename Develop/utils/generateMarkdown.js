@@ -24,6 +24,15 @@ function generateMarkdown(data) {
 
   ## Usage
   ${data.usage}
+
+  ## Installation
+  ${data.installation}
+
+  ## Contributing
+  ${data.contributing}
+
+  ## License
+  ${data.license}
   
   ## Questions
 
